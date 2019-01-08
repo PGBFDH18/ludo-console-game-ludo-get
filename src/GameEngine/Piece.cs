@@ -6,5 +6,8 @@ namespace GameEngine
 {
     class Piece
     {
+        public bool InPlay = false;
+        public bool InStretch = false;
+        public bool Finished = false;
     }
 }
