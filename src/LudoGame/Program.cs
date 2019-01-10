@@ -33,8 +33,18 @@ namespace LudoGame
                 }
             }
 
+            string[][] players = new string[numberOfPlayers][];
+            for (int i = 0; i < numberOfPlayers; i++)
+            {
+                Console.WriteLine("Input player{0} name:", i + 1);
+                string name = Console.ReadLine();
+                Console.WriteLine("Input player{0} color:", i + 1);
+                string color = Console.ReadLine();
+                players[i] = new string[] { name, color };
+            }
+
             var game = new GameEngine.LudoGame();
-            game.StartGame(numberOfPlayers);
+            game.StartGame(numberOfPlayers, players);
         }
     }
 }
