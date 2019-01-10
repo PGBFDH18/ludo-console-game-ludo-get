@@ -6,6 +6,7 @@ namespace GameEngine
     {
 
         Player player = new Player();
+        Piece piece = new Piece();
         // Ta emot information från LudoGame library 
         public LudoGame(string[][] players)
         {
@@ -13,19 +14,28 @@ namespace GameEngine
             // Skapar spelare
             // Skapa pjäser för respektive spelare
             int len = players.Length;
+            Player[] totalplayers = new Player[len];
 
             for (int i = 0; i < len; i++)
             {
                 string name = players[i][0];
                 string color = players[i][1];
 
-
-                player = new Player
+                string tmp = "player" + i;
+                tmp = new Player
                 {
                     Name = name,
                     Color = color
                 };
+                totalplayers[i] = ;
+
             }
+
+            for (int i = 0; i < length; i++)
+            {
+
+            }
+
 
             Run();
         }
