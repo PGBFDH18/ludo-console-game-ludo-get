@@ -6,5 +6,8 @@ namespace GameEngine
 {
     class Session
     {
+        public Session()
+        {
+        }
     }
 }
