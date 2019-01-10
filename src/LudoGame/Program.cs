@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using GameEngine;
 
 namespace LudoGame
@@ -9,11 +11,13 @@ namespace LudoGame
 
         private static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Ludo!");
+            var logo = File.ReadAllLines(@"Logo.txt");
+            foreach (var item in logo)
+                Console.WriteLine(item);
 
             while (numberOfPlayers < 2 || numberOfPlayers > 4)
             {
-                Console.WriteLine("Number of players:");
+                Console.WriteLine("Input numbers of players:");
                 try
                 {
                     numberOfPlayers = int.Parse(Console.ReadLine());
@@ -33,18 +37,31 @@ namespace LudoGame
                 }
             }
 
-            string[][] players = new string[numberOfPlayers][];
+            var colors = new List<string> { "Red", "Blue", "Green", "Yellow" };
+            var players = new string[numberOfPlayers][];
             for (int i = 0; i < numberOfPlayers; i++)
             {
-                Console.WriteLine("Input player{0} name:", i + 1);
-                string name = Console.ReadLine();
-                Console.WriteLine("Input player{0} color:", i + 1);
-                string color = Console.ReadLine();
-                players[i] = new string[] { name, color };
+                Console.WriteLine("\r\nInput player{0} name:", i + 1);
+                var name = Console.ReadLine();
+                Console.WriteLine("Please select color");
+                for (int j = 0; j < colors.Count; j++)
+                {
+                    Console.WriteLine("{0}. {1}", j + 1, colors[j]);
+                }
+                try
+                {
+                    int colorIndex = int.Parse(Console.ReadLine());
+                    players[i] = new string[] { name, colors[colorIndex - 1] };
+                    colors.RemoveAt(colorIndex - 1);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Selected color must be a digit.");
+                }
             }
 
             var game = new GameEngine.LudoGame();
-            game.StartGame(numberOfPlayers, players);
+            //game.StartGame(numberOfPlayers, players);
         }
     }
 }
