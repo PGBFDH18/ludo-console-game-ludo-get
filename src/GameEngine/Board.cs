@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace GameEngine
@@ -15,5 +16,9 @@ namespace GameEngine
         public bool Winner;
         public bool OnBoard;
         public bool ToDice;
-    }
+
+        // Bräddelar
+        public int[] PlayingField = Enumerable.Range(1, 56).ToArray();
+        public int[] Stretch = Enumerable.Range(1, 5).ToArray();
+        }
 }
