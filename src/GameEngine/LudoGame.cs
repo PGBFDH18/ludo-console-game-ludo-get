@@ -6,7 +6,6 @@ namespace GameEngine
 {
     public class LudoGame
     {
-
         Player player = new Player();
         Piece piece = new Piece();
         // Ta emot information från LudoGame library 
