@@ -60,7 +60,7 @@ namespace LudoGame
                 }
             }
 
-            var game = new GameEngine.Session(players);
+            var game = new Session(players, "hej");
             //game.StartGame(numberOfPlayers, players);
         }
     }

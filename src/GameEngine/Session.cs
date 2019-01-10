@@ -8,7 +8,7 @@ namespace GameEngine
         Player player = new Player();
         Piece piece = new Piece();
         // Ta emot information från LudoGame library 
-        public Session(string[][] players)
+        public Session(string[][] players, string startingColor)
         {
             // Extrahera informationen från parametern som Session tar emot.
             // Skapar spelare
@@ -24,14 +24,21 @@ namespace GameEngine
                     Color = players[i][1]
                 };
                 totalplayers[i] = player;
-            }
+                for (int j = 0; j < 4; j++)
+                {
+                    piece = new Piece
+                    {
 
+                    };
+                }
+            }
             Run();
         }
 
         // Inf-loop där vi slår tärningar.
         public void Run()
         {
+
         }
 
         public void StartGame(int numberOfPlayers)
