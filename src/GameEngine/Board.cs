@@ -8,14 +8,14 @@ namespace GameEngine
     class Board
     {
         // Rules
-        public bool Block;
-        public bool Knuff;
-        public bool MyTurn;
-        public bool Goal;
-        public bool FinishLine;
-        public bool Winner;
-        public bool OnBoard;
-        public bool ToDice;
+        public bool Block = false;
+        public bool Knuf = false;
+        public bool MyTur = false;
+        public bool Goal = false;
+        public bool FinishLine = false;
+        public bool Winner = false;
+        public bool OnBoard = false;
+        public bool ToDice = false;
 
         // Bräddelar
         public int[] PlayingField = Enumerable.Range(1, 56).ToArray();

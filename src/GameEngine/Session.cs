@@ -3,13 +3,12 @@
 
 namespace GameEngine
 {
-    public class LudoGame
+    public class Session
     {
-
         Player player = new Player();
         Piece piece = new Piece();
         // Ta emot information från LudoGame library 
-        public LudoGame(string[][] players)
+        public Session(string[][] players)
         {
             // Extrahera informationen från parametern som Session tar emot.
             // Skapar spelare
