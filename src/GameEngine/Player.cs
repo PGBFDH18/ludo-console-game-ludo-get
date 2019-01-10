@@ -8,5 +8,6 @@ namespace GameEngine
     {
         public string Name;
         public string Color;
+        public Piece[] pieces = new Piece[3];
     }
 }

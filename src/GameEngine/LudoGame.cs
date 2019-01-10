@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+
 
 namespace GameEngine
 {
@@ -18,24 +20,18 @@ namespace GameEngine
 
             for (int i = 0; i < len; i++)
             {
-                string name = players[i][0];
-                string color = players[i][1];
-
-                string tmp = "player" + i;
-                tmp = new Player
+                player = new Player
                 {
-                    Name = name,
-                    Color = color
+                    Name = players[i][0],
+                    Color = players[i][1]
                 };
-                totalplayers[i] = ;
-
+                totalplayers[i] = player;
             }
 
             for (int i = 0; i < length; i++)
             {
 
             }
-
 
             Run();
         }
