@@ -7,14 +7,13 @@ namespace GameEngine
     {
         Player player = new Player();
         Piece piece = new Piece();
-        // Ta emot information från LudoGame library 
-        public Session(string[][] players)
+
+        // Ta emot information från LudoGame
+        public Session(string[][] players, string startingColor)
         {
-            // Extrahera informationen från parametern som Session tar emot.
-            // Skapar spelare
-            // Skapa pjäser för respektive spelare
+            // Extrahera informationen från parametrarna som Session tar emot.
             int len = players.Length;
-            Player[] totalplayers = new Player[len];
+            Player[] totalPlayers = new Player[len];
 
             for (int i = 0; i < len; i++)
             {
@@ -23,20 +22,24 @@ namespace GameEngine
                     Name = players[i][0],
                     Color = players[i][1]
                 };
-                totalplayers[i] = player;
+                totalPlayers[i] = player;
+                for (int j = 0; j < 4; j++)
+                {
+                    piece = new Piece
+                    {
+                        Color = players[i][1],
+                        Number = j
+                    };
+                    player.pieces[i] = piece;
+                }
             }
-
             Run();
         }
 
         // Inf-loop där vi slår tärningar.
         public void Run()
         {
-        }
 
-        public void StartGame(int numberOfPlayers)
-        {
-            Console.WriteLine($"Game started with {numberOfPlayers} players");
         }
     }
 }

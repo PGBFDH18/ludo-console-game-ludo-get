@@ -19,7 +19,7 @@ namespace LudoGame
             //var game = new GameEngine.LudoGame(players);
             //  game.StartGame(players);
         }
-
+          
         private static void PrintWellcomeText()
         {
             Console.ForegroundColor = ConsoleColor.Green;
@@ -68,7 +68,7 @@ namespace LudoGame
                     players[i] = new string[] { name, colors[colorIndex - 1] };
                     colors.RemoveAt(colorIndex - 1);
                 }
-                catch (Exception)
+                    catch (Exception)
                 {
                     Console.WriteLine("Selected color must be a digit.");
                 }
