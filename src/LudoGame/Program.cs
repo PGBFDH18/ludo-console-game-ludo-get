@@ -61,16 +61,16 @@ namespace LudoGame
                 {
                     Console.WriteLine("{0}. {1}", j + 1, colors[j]);
                 }
-                try
-                {
+                //try
+                //{
                     int colorIndex = int.Parse(Console.ReadLine());
                     players[i] = new string[] { name, colors[colorIndex - 1] };
                     colors.RemoveAt(colorIndex - 1);
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("Selected color must be a digit.");
-                }
+                //}
+                //catch (Exception)
+                //{
+                //    Console.WriteLine("Selected color must be a digit.");
+                //}
             }
         }
     }
