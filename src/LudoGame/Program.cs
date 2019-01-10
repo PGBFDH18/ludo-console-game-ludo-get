@@ -3,28 +3,36 @@ using GameEngine;
 
 namespace LudoGame
 {
-    class Program
+    internal class Program
     {
-        static int numberOfPlayers;
+        private static int numberOfPlayers;
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Ludo!");
 
-            while (numberOfPlayers <= 1 || numberOfPlayers >= 5)
+            while (numberOfPlayers < 2 || numberOfPlayers > 4)
             {
                 Console.WriteLine("Number of players:");
-                numberOfPlayers = int.Parse(Console.ReadLine());
+                try
+                {
+                    numberOfPlayers = int.Parse(Console.ReadLine());
 
-                if (numberOfPlayers <= 1)
-                {
-                    Console.WriteLine("Must be more than 2 players");
+                    if (numberOfPlayers < 2)
+                    {
+                        Console.WriteLine("Must be more atleast 2 players");
+                    }
+                    else if (numberOfPlayers > 4)
+                    {
+                        Console.WriteLine("Maximum 4 players");
+                    }
                 }
-                else if (numberOfPlayers >= 5)
+                catch (Exception)
                 {
-                    Console.WriteLine("Maximum 4 players");
+                    Console.WriteLine("Number of players must be a digit");
                 }
             }
+
             var game = new GameEngine.LudoGame();
             game.StartGame(numberOfPlayers);
         }
