@@ -9,8 +9,8 @@ namespace GameEngine
     {
         // Rules
         public bool Block = false;
-        public bool Knuf = false;
-        public bool MyTur = false;
+        public bool Knuff = false;
+        public bool MyTurn = false;
         public bool Goal = false;
         public bool FinishLine = false;
         public bool Winner = false;
