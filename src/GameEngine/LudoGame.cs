@@ -28,11 +28,6 @@ namespace GameEngine
                 totalplayers[i] = player;
             }
 
-            for (int i = 0; i < length; i++)
-            {
-
-            }
-
             Run();
         }
 
