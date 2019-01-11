@@ -33,7 +33,11 @@ namespace LudoGame
             //Console.WriteLine("5: Roll dice.");
             //Console.WriteLine("6: Roll dice.");
             int choice = int.Parse(Console.ReadLine());
-            // kolla vilket val spelaren gjort i program eller session?
+            if (choice == 1)
+            {
+                
+            }
+            Console.WriteLine();
             Console.ReadKey();
         }
 
