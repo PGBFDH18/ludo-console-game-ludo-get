@@ -36,7 +36,24 @@ namespace LudoGame
             int choice = int.Parse(Console.ReadLine());
             if (choice == 1)
             {
+            Console.WriteLine("");
                 Console.WriteLine("Red");
+                Console.WriteLine("");
+
+                Run();
+            }
+            else if (choice == 2)
+            {
+                Console.WriteLine("");
+
+                Console.WriteLine("x------x---xx-------");
+                Console.WriteLine("");
+
+                Run();
+            }
+            else if (choice == 3)
+            {
+                
             }
             Console.WriteLine();
             Console.ReadKey();
