@@ -13,16 +13,17 @@ namespace GameEngine
         Colors clr;
         Player[] totalPlayers;
         int currentPlayer = 0;
+        int numberOfPlayers = 0;
 
         // Ta emot information från LudoGame
         public Session(string[][] players, string startingColor)
         {
             // Extrahera informationen från parametrarna som Session tar emot.
-            int len = players.Length;
-            totalPlayers = new Player[len];
+            numberOfPlayers = players.Length;
+            totalPlayers = new Player[numberOfPlayers];
             int eValue;
 
-            for (int i = 0; i < len; i++)
+            for (int i = 0; i < numberOfPlayers; i++)
             {
                 player = new Player
                 {
@@ -69,12 +70,11 @@ namespace GameEngine
         // Inf-loop där vi slår tärningar.
         public void Run(string startingColor)
         {
-            int tmp = d.Roll();
         }
 
         public int MovePiece(int tmp)
         {
-
+            return 1;
         }
 
         public void PlayerRoll()
@@ -82,8 +82,16 @@ namespace GameEngine
             int tmp = d.Roll();
             if(tmp != 6)
             {
-                currentPlayer++;
-                MovePiece(tmp);
+                if(currentPlayer >= numberOfPlayers)
+                {
+                    currentPlayer = 0;
+                    MovePiece(tmp);
+                }
+                else
+                {
+                    currentPlayer++;
+                    MovePiece(tmp);
+                }
             }
             else
             {
