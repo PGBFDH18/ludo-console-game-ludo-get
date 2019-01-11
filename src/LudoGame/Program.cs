@@ -19,14 +19,21 @@ namespace LudoGame
             //  game.StartGame(players);
 
             Run();
-            
         }
 
         private static void Run()
         {
             while (true)
             {
+                var diceRoll = new Die();
+                Console.WriteLine("1: Roll dice.");
+                int roll = diceRoll.Roll();
 
+                Console.WriteLine("2: Roll dice.");
+                Console.WriteLine("3: Roll dice.");
+                Console.WriteLine("4: Roll dice.");
+                Console.WriteLine("5: Roll dice.");
+                Console.WriteLine("6: Roll dice.");
             }
         }
 
@@ -84,12 +91,5 @@ namespace LudoGame
                 }
             }
         }
-
-
-        private void GetInformation()
-        {
-
-        }
-
     }
 }

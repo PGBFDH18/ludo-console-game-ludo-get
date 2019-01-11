@@ -6,9 +6,10 @@ namespace GameEngine
     enum Colors { Red, Blue, Green, Yellow};
     public class Session
     {
-        Player player = new Player();
-        Piece piece = new Piece();
-        Die d = new Die();
+        Player player;
+        Piece piece;
+        Die d;
+        Board board;
         Colors clr;
 
         // Ta emot information från LudoGame
@@ -67,6 +68,11 @@ namespace GameEngine
         public void Run(string startingColor)
         {
             int tmp = d.Roll();
+        }
+
+        public void MovePiece()
+        {
+
         }
     }
 }
