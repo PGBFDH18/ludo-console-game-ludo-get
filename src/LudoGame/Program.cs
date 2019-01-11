@@ -15,7 +15,7 @@ namespace LudoGame
             PrintWellcomeText();
             SetNumberOfPlayers();
             SetPlayers();
-            var game = new Session(players, "Red");
+            //var game = new Session(players, "Red");
             //  game.StartGame(players);
 
             Run();
@@ -23,18 +23,18 @@ namespace LudoGame
 
         private static void Run()
         {
-            while (true)
-            {
-                var diceRoll = new Die();
-                Console.WriteLine("1: Roll dice.");
-                int roll = diceRoll.Roll();
+            Console.WriteLine("");
 
-                Console.WriteLine("2: Roll dice.");
-                Console.WriteLine("3: Roll dice.");
-                Console.WriteLine("4: Roll dice.");
-                Console.WriteLine("5: Roll dice.");
-                Console.WriteLine("6: Roll dice.");
-            }
+            Console.WriteLine("What do you wanna do?");
+            Console.WriteLine("1: See who's turn it is.");
+            Console.WriteLine("2: Look at current playingfield.");
+            Console.WriteLine("3: Roll dice.");
+            //Console.WriteLine("4: Roll dice.");
+            //Console.WriteLine("5: Roll dice.");
+            //Console.WriteLine("6: Roll dice.");
+            int choice = int.Parse(Console.ReadLine());
+            // kolla vilket val spelaren gjort i program eller session?
+            Console.ReadKey();
         }
 
         private static void PrintWellcomeText()
