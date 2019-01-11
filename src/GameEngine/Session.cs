@@ -8,9 +8,9 @@ namespace GameEngine
     {
         Player player;
         Piece piece;
-        Die d;
+        Die die;
         Board board;
-        Colors clr;
+        Colors color;
         Player[] totalPlayers;
         int currentPlayer = 0;
         int numberOfPlayers = 0;
@@ -43,22 +43,22 @@ namespace GameEngine
 
                 if (Colors.Red.ToString() == player.Color)
                 {
-                    eValue = (int)clr;
+                    eValue = (int)color;
                     totalPlayers[eValue] = player;
                 }
                 if (Colors.Blue.ToString() == player.Color)
                 {
-                    eValue = (int)clr;
+                    eValue = (int)color;
                     totalPlayers[eValue] = player;
                 }
                 if (Colors.Green.ToString() == player.Color)
                 {
-                    eValue = (int)clr;
+                    eValue = (int)color;
                     totalPlayers[eValue] = player;
                 }
                 if (Colors.Yellow.ToString() == player.Color)
                 {
-                    eValue = (int)clr;
+                    eValue = (int)color;
                     totalPlayers[eValue] = player;
                 }
             }
@@ -77,7 +77,7 @@ namespace GameEngine
 
         public void PlayerRoll()
         {
-            int tmp = d.Roll();
+            int tmp = die.Roll();
             if (tmp != 6)
             {
                 if(currentPlayer >= numberOfPlayers)
