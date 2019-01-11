@@ -1,12 +1,15 @@
 ﻿using System;
-
+using System.Collections.Generic;
 
 namespace GameEngine
 {
+    enum Colors { Red, Blue, Green, Yellow};
     public class Session
     {
         Player player = new Player();
         Piece piece = new Piece();
+        Die d = new Die();
+        Colors clr;
 
         // Ta emot information från LudoGame
         public Session(string[][] players, string startingColor)
@@ -14,15 +17,17 @@ namespace GameEngine
             // Extrahera informationen från parametrarna som Session tar emot.
             int len = players.Length;
             Player[] totalPlayers = new Player[len];
+            int eValue;
 
-            for (int i = 0; i < len; i++)
+            for (int i = 0; i <= len; i++)
             {
                 player = new Player
                 {
                     Name = players[i][0],
                     Color = players[i][1]
                 };
-                totalPlayers[i] = player;
+
+
                 for (int j = 0; j < 4; j++)
                 {
                     piece = new Piece
@@ -32,14 +37,38 @@ namespace GameEngine
                     };
                     player.pieces[i] = piece;
                 }
+
+                if (Colors.Red.ToString() == player.Color)
+                {
+                    eValue = (int)clr;
+                    totalPlayers[eValue] = player;
+                }
+                if (Colors.Blue.ToString() == player.Color)
+                {
+                    eValue = (int)clr;
+                    totalPlayers[eValue] = player;
+                }
+                if (Colors.Green.ToString() == player.Color)
+                {
+                    eValue = (int)clr;
+                    totalPlayers[eValue] = player;
+                }
+                if (Colors.Yellow.ToString() == player.Color)
+                {
+                    eValue = (int)clr;
+                    totalPlayers[eValue] = player;
+                }
+
             }
-            Run();
+
+            Run(startingColor);
         }
 
         // Inf-loop där vi slår tärningar.
-        public void Run()
+        public void Run(string startingColor)
         {
-
+            int tmp = d.Roll();
+            
         }
     }
 }

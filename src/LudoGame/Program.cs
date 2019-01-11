@@ -10,14 +10,24 @@ namespace LudoGame
         private static List<string> colors = new List<string> { "Red", "Blue", "Green", "Yellow" };
         private static int numberOfPlayers;
         private static string[][] players = new string[numberOfPlayers][];
-
         private static void Main(string[] args)
         {
             PrintWellcomeText();
             SetNumberOfPlayers();
             SetPlayers();
-            //var game = new GameEngine.LudoGame(players);
+            var game = new Session(players, "Red");
             //  game.StartGame(players);
+
+            Run();
+            
+        }
+
+        private static void Run()
+        {
+            while (true)
+            {
+
+            }
         }
 
         private static void PrintWellcomeText()
@@ -73,5 +83,12 @@ namespace LudoGame
                 }
             }
         }
+
+
+        private void GetInformation()
+        {
+
+        }
+
     }
 }
