@@ -78,7 +78,7 @@ namespace GameEngine
         public void PlayerRoll()
         {
             int tmp = d.Roll();
-            if(tmp != 6)
+            if (tmp != 6)
             {
                 if(currentPlayer >= numberOfPlayers)
                 {
