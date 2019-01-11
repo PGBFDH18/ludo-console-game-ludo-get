@@ -10,12 +10,13 @@ namespace LudoGame
         private static List<string> colors = new List<string> { "Red", "Blue", "Green", "Yellow" };
         private static int numberOfPlayers;
         private static string[][] players;
+        static Session S;
         private static void Main(string[] args)
         {
             PrintWellcomeText();
             SetNumberOfPlayers();
             SetPlayers();
-            //var game = new Session(players, "Red");
+            var S = new Session(players, "Red");
             //  game.StartGame(players);
 
             Run();
@@ -35,7 +36,7 @@ namespace LudoGame
             int choice = int.Parse(Console.ReadLine());
             if (choice == 1)
             {
-                
+                Console.WriteLine(S.GetCurrentPlayer());
             }
             Console.WriteLine();
             Console.ReadKey();
