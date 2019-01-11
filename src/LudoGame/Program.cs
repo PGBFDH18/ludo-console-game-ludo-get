@@ -36,7 +36,7 @@ namespace LudoGame
             int choice = int.Parse(Console.ReadLine());
             if (choice == 1)
             {
-                Console.WriteLine(S.GetCurrentPlayer());
+                Console.WriteLine("Red");
             }
             Console.WriteLine();
             Console.ReadKey();
