@@ -19,14 +19,13 @@ namespace GameEngine
             Player[] totalPlayers = new Player[len];
             int eValue;
 
-            for (int i = 0; i <= len; i++)
+            for (int i = 0; i < len; i++)
             {
                 player = new Player
                 {
                     Name = players[i][0],
                     Color = players[i][1]
                 };
-
 
                 for (int j = 0; j < 4; j++)
                 {
@@ -68,7 +67,6 @@ namespace GameEngine
         public void Run(string startingColor)
         {
             int tmp = d.Roll();
-            
         }
     }
 }
