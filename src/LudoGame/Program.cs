@@ -9,7 +9,7 @@ namespace LudoGame
     {
         private static List<string> colors = new List<string> { "Red", "Blue", "Green", "Yellow" };
         private static int numberOfPlayers;
-        private static string[][] players = new string[numberOfPlayers][];
+        private static string[][] players;
         private static void Main(string[] args)
         {
             PrintWellcomeText();
@@ -58,6 +58,7 @@ namespace LudoGame
                     Console.WriteLine("Number of players must be a digit");
                 }
             }
+            players = new string[numberOfPlayers][];
         }
 
         private static void SetPlayers()
