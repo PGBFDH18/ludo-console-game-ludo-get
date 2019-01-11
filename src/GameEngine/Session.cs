@@ -11,13 +11,15 @@ namespace GameEngine
         Die d;
         Board board;
         Colors clr;
+        Player[] totalPlayers;
+        int currentPlayer = 0;
 
         // Ta emot information från LudoGame
         public Session(string[][] players, string startingColor)
         {
             // Extrahera informationen från parametrarna som Session tar emot.
             int len = players.Length;
-            Player[] totalPlayers = new Player[len];
+            totalPlayers = new Player[len];
             int eValue;
 
             for (int i = 0; i < len; i++)
@@ -70,9 +72,28 @@ namespace GameEngine
             int tmp = d.Roll();
         }
 
-        public void MovePiece()
+        public int MovePiece(int tmp)
         {
 
+        }
+
+        public void PlayerRoll()
+        {
+            int tmp = d.Roll();
+            if(tmp != 6)
+            {
+                currentPlayer++;
+                MovePiece(tmp);
+            }
+            else
+            {
+                MovePiece(tmp);
+            }
+        }
+
+        public string GetCurrentPlayer()
+        {
+            return totalPlayers[currentPlayer].Color;
         }
     }
 }
