@@ -61,9 +61,7 @@ namespace GameEngine
                     eValue = (int)clr;
                     totalPlayers[eValue] = player;
                 }
-
             }
-
             Run(startingColor);
         }
 
