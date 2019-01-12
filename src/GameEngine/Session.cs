@@ -21,7 +21,6 @@ namespace GameEngine
             // Extrahera informationen från parametrarna som Session tar emot.
             numberOfPlayers = players.Length;
             totalPlayers = new Player[numberOfPlayers];
-            int eValue;
 
             for (int i = 0; i < numberOfPlayers; i++)
             {
@@ -79,15 +78,14 @@ namespace GameEngine
 
         public string GetCurrentPlayer()
         {
-            if (currentPlayer > totalPlayers.Length)
-                currentPlayer = 0;
-
             return totalPlayers[currentPlayer].Color;
         }
 
         public void IncrementCurrentPlayer()
         {
             currentPlayer++;
+            if (currentPlayer > totalPlayers.Length)
+                currentPlayer = 0;
         }
     }
 }
