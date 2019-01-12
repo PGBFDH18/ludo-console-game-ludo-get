@@ -73,6 +73,7 @@ namespace GameEngine
         public int PlayerRoll()
         {
             int tmp = die.Roll();
+            MovePiece(tmp);
             return tmp;
         }
 
