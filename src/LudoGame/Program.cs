@@ -16,7 +16,7 @@ namespace LudoGame
             PrintWellcomeText();
             SetNumberOfPlayers();
             SetPlayers();
-            var S = new Session(players, "Red");
+            S = new Session(players, "Red");
             //  game.StartGame(players);
 
             Run();
@@ -36,7 +36,7 @@ namespace LudoGame
             int choice = int.Parse(Console.ReadLine());
             if (choice == 1)
             {
-            Console.WriteLine("");
+                Console.WriteLine("");
                 Console.WriteLine("Red");
                 Console.WriteLine("");
 
@@ -45,7 +45,6 @@ namespace LudoGame
             else if (choice == 2)
             {
                 Console.WriteLine("");
-
                 Console.WriteLine("x------x---xx-------");
                 Console.WriteLine("");
 
@@ -53,7 +52,9 @@ namespace LudoGame
             }
             else if (choice == 3)
             {
-                
+                int tmp = S.PlayerRoll();
+                Console.WriteLine(S.GetCurrentPlayer() + " player rolled: " + tmp);
+                S.IncrementCurrentPlayer();
             }
             Console.WriteLine();
             Console.ReadKey();
