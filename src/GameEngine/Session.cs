@@ -86,8 +86,8 @@ namespace GameEngine
                     totalPlayers[colorsInPlay.IndexOf("Yellow")] = player;
                 }
             }
-            string startingColor = colorsInPlay[0];
-            Run(startingColor);
+            //string startingColor = colorsInPlay[0];
+            //Run(startingColor);
         }
 
         // Inf-loop där vi slår tärningar.

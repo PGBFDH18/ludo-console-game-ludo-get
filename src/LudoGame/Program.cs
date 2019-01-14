@@ -25,7 +25,6 @@ namespace LudoGame
         private static void Run()
         {
             Console.WriteLine("");
-
             Console.WriteLine("What do you wanna do?");
             Console.WriteLine("1: See who's turn it is.");
             Console.WriteLine("2: Look at current playingfield.");
@@ -36,10 +35,8 @@ namespace LudoGame
             int choice = int.Parse(Console.ReadLine());
             if (choice == 1)
             {
-                Console.WriteLine("");
-                Console.WriteLine("Red");
-                Console.WriteLine("");
-
+                string p = S.GetCurrentPlayer();
+                Console.WriteLine(p);
                 Run();
             }
             else if (choice == 2)
@@ -96,8 +93,11 @@ namespace LudoGame
             for (int i = 0; i < numberOfPlayers; i++)
             {
                 Console.WriteLine("\r\nInput player {0}:s name:", i + 1);
+                Console.WriteLine("");
                 var name = Console.ReadLine();
                 Console.WriteLine("\r\nPlease select player {0}:s color", i + 1);
+                Console.WriteLine("");
+
                 for (int j = 0; j < colors.Count; j++)
                 {
                     Console.WriteLine("{0}. {1}", j + 1, colors[j]);
