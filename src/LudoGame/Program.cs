@@ -36,7 +36,7 @@ namespace LudoGame
             if (choice == 1)
             {
                 string p = S.GetCurrentPlayer();
-                Console.WriteLine(p);
+                Console.WriteLine($"It's {p}:s turn!");
                 Run();
             }
             else if (choice == 2)
