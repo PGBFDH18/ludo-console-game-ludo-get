@@ -16,7 +16,7 @@ namespace LudoGame
             PrintWelcomeText();
             SetNumberOfPlayers();
             SetPlayers();
-            S = new Session(players, "Red");
+            S = new Session(players);
             //  game.StartGame(players);
 
             Run();

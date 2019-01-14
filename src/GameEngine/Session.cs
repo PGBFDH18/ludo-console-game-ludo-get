@@ -16,12 +16,41 @@ namespace GameEngine
         int numberOfPlayers = 0;
         
         // Ta emot information från LudoGame
-        public Session(string[][] players, string startingColor)
+        public Session(string[][] players)
         {
             // Extrahera informationen från parametrarna som Session tar emot.
             numberOfPlayers = players.Length;
             totalPlayers = new Player[numberOfPlayers];
 
+            List<string> colorsInPlay = new List<string>();
+            foreach (string[] s in players)
+            {
+                if (s[1] == "Red")
+                {
+                    colorsInPlay.Add("Red");
+                }
+            }
+            foreach (string[] s in players)
+            {
+                if (s[1] == "Blue")
+                {
+                    colorsInPlay.Add("Blue");
+                }
+            }
+            foreach (string[] s in players)
+            {
+                if (s[1] == "Green")
+                {
+                    colorsInPlay.Add("Green");
+                }
+            }
+            foreach (string[] s in players)
+            {
+                if (s[1] == "Yellow")
+                {
+                    colorsInPlay.Add("Yellow");
+                }
+            }
             for (int i = 0; i < numberOfPlayers; i++)
             {
                 player = new Player
@@ -42,21 +71,22 @@ namespace GameEngine
 
                 if (Colors.Red.ToString() == player.Color)
                 {
-                    totalPlayers[0] = player;
+                    totalPlayers[colorsInPlay.IndexOf("Red")] = player;
                 }
                 if (Colors.Blue.ToString() == player.Color)
                 {
-                    totalPlayers[1] = player;
+                    totalPlayers[colorsInPlay.IndexOf("Blue")] = player;
                 }
                 if (Colors.Green.ToString() == player.Color)
                 {
-                    totalPlayers[2] = player;
+                    totalPlayers[colorsInPlay.IndexOf("Green")] = player;
                 }
                 if (Colors.Yellow.ToString() == player.Color)
                 {
-                    totalPlayers[3] = player;
+                    totalPlayers[colorsInPlay.IndexOf("Yellow")] = player;
                 }
             }
+            string startingColor = colorsInPlay[0];
             Run(startingColor);
         }
 
