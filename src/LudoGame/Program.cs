@@ -49,7 +49,7 @@ namespace LudoGame
             }
             else if (choice == 3)
             {
-                int tmp = S.PlayerRoll();
+                int tmp = 2;
                 Console.WriteLine(S.GetCurrentPlayer() + " player rolled: " + tmp);
                 S.IncrementCurrentPlayer();
             }

@@ -93,18 +93,44 @@ namespace GameEngine
         // Inf-loop där vi slår tärningar.
         public void Run(string startingColor)
         {
+
+
+
+            //Sist
+            //if (roll != 6)
+            //{
+            //    IncrementCurrentPlayer();
+            //}
         }
 
-        public int MovePiece(int tmp)
+
+        public List<string> PlayerRoll()
+        {
+            string temp;
+            List<string> alternative = new List<string>();
+            int roll = die.Roll();
+            temp = "You rolled " + roll;
+            alternative.Add(temp);
+
+            Alternatives(roll);
+
+            MovePiece(roll);
+
+            return alternative;
+        }
+
+        public int MovePiece(int roll)
         {
             return 1;
         }
 
-        public int PlayerRoll()
+        public int Alternatives(int roll)
         {
-            int tmp = die.Roll();
-            MovePiece(tmp);
-            return tmp;
+            for (int i = 0; i < 4; i++)
+            {
+                MovePiece(roll);
+            }
+            return 1;
         }
 
         public string GetCurrentPlayer()
