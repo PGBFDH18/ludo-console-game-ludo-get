@@ -109,18 +109,24 @@ namespace GameEngine
             string temp;
             List<string> alternative = new List<string>();
             int roll = die.Roll();
-            temp = "You rolled " + roll;
+            temp = roll.ToString();
             alternative.Add(temp);
 
-            Alternatives(roll);
-
-            MovePiece(roll);
+            MovePiece(roll, 0);
 
             return alternative;
         }
 
-        public int MovePiece(int roll)
+        public int MovePiece(int roll, int pieceID)
         {
+            foreach (var item in totalPlayers)
+            {
+                if(item.Color == GetCurrentPlayer() && item.pieces[0].Number == pieceID)
+                {
+                    item.pieces[0].Position += roll;
+                    break;
+                }
+            }
             return 1;
         }
 
@@ -128,7 +134,7 @@ namespace GameEngine
         {
             for (int i = 0; i < 4; i++)
             {
-                MovePiece(roll);
+                MovePiece(roll, 0 );
             }
             return 1;
         }

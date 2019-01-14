@@ -11,6 +11,7 @@ namespace LudoGame
         private static int numberOfPlayers;
         private static string[][] players;
         static Session S;
+        private static List<string> alternative = new List<string>();
         private static void Main(string[] args)
         {
             PrintWelcomeText();
@@ -49,9 +50,21 @@ namespace LudoGame
             }
             else if (choice == 3)
             {
-                int tmp = 2;
-                Console.WriteLine(S.GetCurrentPlayer() + " player rolled: " + tmp);
-                S.IncrementCurrentPlayer();
+                alternative = S.PlayerRoll();
+                if(Convert.ToInt32(alternative[0]) == 6)
+                {
+                    Console.WriteLine("Would you like to move a new piece out of the nest?");
+                    string tmp = Console.ReadLine();
+                    // Roll again etc.
+                }
+                else
+                {
+                    // If number of pieces in play is greater than 1,
+                    // display mentioned pieces and request Piece ID from user.
+                    // Call a function that takes the roll and a Piece ID(number) as parameter.
+                    Console.WriteLine(S.GetCurrentPlayer() + " player rolled: " + alternative[0]);
+                    S.MovePiece(Convert.ToInt32(alternative[0]), 0);
+                }
             }
             Console.WriteLine();
             Console.ReadKey();
