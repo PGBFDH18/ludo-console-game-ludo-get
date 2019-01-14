@@ -13,7 +13,7 @@ namespace LudoGame
         static Session S;
         private static void Main(string[] args)
         {
-            PrintWellcomeText();
+            PrintWelcomeText();
             SetNumberOfPlayers();
             SetPlayers();
             S = new Session(players, "Red");
@@ -60,7 +60,7 @@ namespace LudoGame
             Console.ReadKey();
         }
 
-        private static void PrintWellcomeText()
+        private static void PrintWelcomeText()
         {
             Console.ForegroundColor = ConsoleColor.Green;
             var logo = File.ReadAllLines(@"Logo.txt");
@@ -95,9 +95,9 @@ namespace LudoGame
         {
             for (int i = 0; i < numberOfPlayers; i++)
             {
-                Console.WriteLine("\r\nInput player{0} name:", i + 1);
+                Console.WriteLine("\r\nInput player {0}:s name:", i + 1);
                 var name = Console.ReadLine();
-                Console.WriteLine("\r\nPlease select player{0} color", i + 1);
+                Console.WriteLine("\r\nPlease select player {0}:s color", i + 1);
                 for (int j = 0; j < colors.Count; j++)
                 {
                     Console.WriteLine("{0}. {1}", j + 1, colors[j]);
