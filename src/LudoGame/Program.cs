@@ -13,10 +13,10 @@ namespace LudoGame
         static Session S;
         private static void Main(string[] args)
         {
-            PrintWelcomeText();
+            PrintWellcomeText();
             SetNumberOfPlayers();
             SetPlayers();
-            var S = new Session(players, "Red");
+            S = new Session(players, "Red");
             //  game.StartGame(players);
 
             Run();
@@ -36,7 +36,6 @@ namespace LudoGame
             int choice = int.Parse(Console.ReadLine());
             if (choice == 1)
             {
-                // Hämta info från session om vilken spelares tur det är.
                 Console.WriteLine("");
                 Console.WriteLine("Red");
                 Console.WriteLine("");
@@ -45,7 +44,6 @@ namespace LudoGame
             }
             else if (choice == 2)
             {
-                // Rita upp brädet?
                 Console.WriteLine("");
                 Console.WriteLine("x------x---xx-------");
                 Console.WriteLine("");
@@ -54,15 +52,15 @@ namespace LudoGame
             }
             else if (choice == 3)
             {
-                // SPELA
-
-                // Tillbaka till spelet. Hur sluta?
+                int tmp = S.PlayerRoll();
+                Console.WriteLine(S.GetCurrentPlayer() + " player rolled: " + tmp);
+                S.IncrementCurrentPlayer();
             }
             Console.WriteLine();
             Console.ReadKey();
         }
 
-        private static void PrintWelcomeText()
+        private static void PrintWellcomeText()
         {
             Console.ForegroundColor = ConsoleColor.Green;
             var logo = File.ReadAllLines(@"Logo.txt");
@@ -97,9 +95,9 @@ namespace LudoGame
         {
             for (int i = 0; i < numberOfPlayers; i++)
             {
-                Console.WriteLine("\r\nInput player {0}:s name:", i + 1);
+                Console.WriteLine("\r\nInput player{0} name:", i + 1);
                 var name = Console.ReadLine();
-                Console.WriteLine("\r\nPlease select player {0}:s color", i + 1);
+                Console.WriteLine("\r\nPlease select player{0} color", i + 1);
                 for (int j = 0; j < colors.Count; j++)
                 {
                     Console.WriteLine("{0}. {1}", j + 1, colors[j]);

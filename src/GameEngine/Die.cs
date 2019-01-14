@@ -9,7 +9,8 @@ namespace GameEngine
         Random rnd = new Random();
         public int Roll()
         {
-            return rnd.Next(1, 7);
+            int tmp = rnd.Next(1, 7);
+            return tmp;
         }
     }
 }

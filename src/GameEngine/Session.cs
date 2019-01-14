@@ -6,22 +6,21 @@ namespace GameEngine
     enum Colors { Red, Blue, Green, Yellow};
     public class Session
     {
-        Player player;
-        Piece piece;
-        Die die;
-        Board board;
-        Colors color;
+        Player player = new Player();
+        Piece piece = new Piece();
+        Die die = new Die();
+        Board board = new Board();
+        Colors color = new Colors();
         Player[] totalPlayers;
         int currentPlayer = 0;
         int numberOfPlayers = 0;
-
+        
         // Ta emot information från LudoGame
         public Session(string[][] players, string startingColor)
         {
             // Extrahera informationen från parametrarna som Session tar emot.
             numberOfPlayers = players.Length;
             totalPlayers = new Player[numberOfPlayers];
-            int eValue;
 
             for (int i = 0; i < numberOfPlayers; i++)
             {
@@ -38,28 +37,24 @@ namespace GameEngine
                         Color = players[i][1],
                         Number = j
                     };
-                    player.pieces[i] = piece;
+                    player.pieces[j] = piece;
                 }
 
                 if (Colors.Red.ToString() == player.Color)
                 {
-                    eValue = (int)color;
-                    totalPlayers[eValue] = player;
+                    totalPlayers[0] = player;
                 }
                 if (Colors.Blue.ToString() == player.Color)
                 {
-                    eValue = (int)color;
-                    totalPlayers[eValue] = player;
+                    totalPlayers[1] = player;
                 }
                 if (Colors.Green.ToString() == player.Color)
                 {
-                    eValue = (int)color;
-                    totalPlayers[eValue] = player;
+                    totalPlayers[2] = player;
                 }
                 if (Colors.Yellow.ToString() == player.Color)
                 {
-                    eValue = (int)color;
-                    totalPlayers[eValue] = player;
+                    totalPlayers[3] = player;
                 }
             }
             Run(startingColor);
@@ -75,31 +70,23 @@ namespace GameEngine
             return 1;
         }
 
-        public void PlayerRoll()
+        public int PlayerRoll()
         {
             int tmp = die.Roll();
-            if (tmp != 6)
-            {
-                if(currentPlayer >= numberOfPlayers)
-                {
-                    currentPlayer = 0;
-                    MovePiece(tmp);
-                }
-                else
-                {
-                    currentPlayer++;
-                    MovePiece(tmp);
-                }
-            }
-            else
-            {
-                MovePiece(tmp);
-            }
+            MovePiece(tmp);
+            return tmp;
         }
 
         public string GetCurrentPlayer()
         {
             return totalPlayers[currentPlayer].Color;
+        }
+
+        public void IncrementCurrentPlayer()
+        {
+            currentPlayer++;
+            if (currentPlayer > totalPlayers.Length)
+                currentPlayer = 0;
         }
     }
 }
