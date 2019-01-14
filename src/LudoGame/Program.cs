@@ -13,7 +13,7 @@ namespace LudoGame
         static Session S;
         private static void Main(string[] args)
         {
-            PrintWellcomeText();
+            PrintWelcomeText();
             SetNumberOfPlayers();
             SetPlayers();
             var S = new Session(players, "Red");
@@ -36,7 +36,8 @@ namespace LudoGame
             int choice = int.Parse(Console.ReadLine());
             if (choice == 1)
             {
-            Console.WriteLine("");
+                // Hämta info från session om vilken spelares tur det är.
+                Console.WriteLine("");
                 Console.WriteLine("Red");
                 Console.WriteLine("");
 
@@ -44,8 +45,8 @@ namespace LudoGame
             }
             else if (choice == 2)
             {
+                // Rita upp brädet?
                 Console.WriteLine("");
-
                 Console.WriteLine("x------x---xx-------");
                 Console.WriteLine("");
 
@@ -53,13 +54,15 @@ namespace LudoGame
             }
             else if (choice == 3)
             {
-                
+                // SPELA
+
+                // Tillbaka till spelet. Hur sluta?
             }
             Console.WriteLine();
             Console.ReadKey();
         }
 
-        private static void PrintWellcomeText()
+        private static void PrintWelcomeText()
         {
             Console.ForegroundColor = ConsoleColor.Green;
             var logo = File.ReadAllLines(@"Logo.txt");
@@ -94,9 +97,9 @@ namespace LudoGame
         {
             for (int i = 0; i < numberOfPlayers; i++)
             {
-                Console.WriteLine("\r\nInput player{0} name:", i + 1);
+                Console.WriteLine("\r\nInput player {0}:s name:", i + 1);
                 var name = Console.ReadLine();
-                Console.WriteLine("\r\nPlease select player{0} color", i + 1);
+                Console.WriteLine("\r\nPlease select player {0}:s color", i + 1);
                 for (int j = 0; j < colors.Count; j++)
                 {
                     Console.WriteLine("{0}. {1}", j + 1, colors[j]);
