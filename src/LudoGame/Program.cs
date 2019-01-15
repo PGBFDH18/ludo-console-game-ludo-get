@@ -7,11 +7,12 @@ namespace LudoGame
 {
     internal class Program
     {
+        private static List<string> alternative = new List<string>();
         private static List<string> colors = new List<string> { "Red", "Blue", "Green", "Yellow" };
         private static int numberOfPlayers;
         private static string[][] players;
-        static Session S;
-        private static List<string> alternative = new List<string>();
+        private static Session S;
+
         private static void Main(string[] args)
         {
             PrintWelcomeText();
@@ -23,8 +24,17 @@ namespace LudoGame
             Run();
         }
 
+        private static void PrintWelcomeText()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            var logo = File.ReadAllLines(@"Logo.txt");
+            foreach (var item in logo)
+                Console.WriteLine(item);
+        }
+
         private static void Run()
         {
+            Console.ForegroundColor = (ConsoleColor)Enum.Parse(typeof(ConsoleColor), S.GetCurrentPlayer());
             Console.WriteLine("");
             Console.WriteLine("What do you wanna do?");
             Console.WriteLine("1: See who's turn it is.");
@@ -51,7 +61,7 @@ namespace LudoGame
             else if (choice == 3)
             {
                 alternative = S.PlayerRoll();
-                if(Convert.ToInt32(alternative[0]) == 6)
+                if (Convert.ToInt32(alternative[0]) == 6)
                 {
                     Console.WriteLine("Would you like to move a new piece out of the nest?");
                     string tmp = Console.ReadLine();
@@ -68,14 +78,6 @@ namespace LudoGame
             }
             Console.WriteLine();
             Console.ReadKey();
-        }
-
-        private static void PrintWelcomeText()
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            var logo = File.ReadAllLines(@"Logo.txt");
-            foreach (var item in logo)
-                Console.WriteLine(item);
         }
 
         private static void SetNumberOfPlayers()
